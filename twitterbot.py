@@ -3,7 +3,7 @@ import secrets
 import datetime
 import time
 
-auth = twitter.OAuthHandler(secrets.API_KEY,secrets.API_SCERET_KEY)
+auth = twitter.OAuthHandler(secrets.API_KEY,secrets.API_SECRET_KEY)
 auth.set_access_token(secrets.ACCESS_TOKEN,secrets.SECRET_ACCESS_TOKEN)
 api = twitter.API(auth)
 
@@ -22,7 +22,7 @@ def bot(hashtags):
 
                     print("Tweet ID:",id)
                     print("Tweet Text:",text)
-                except twitter.tweepError as e:
+                except twitter.TweepError as e:
                     print(e.reason)
 
             time.sleep(10)
